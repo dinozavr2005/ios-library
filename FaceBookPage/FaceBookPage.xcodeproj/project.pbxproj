@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E7E7F0FE2826C5AD006E2C3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F0FD2826C5AD006E2C3C /* AppDelegate.swift */; };
-		E7E7F1002826C5AD006E2C3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F0FF2826C5AD006E2C3C /* SceneDelegate.swift */; };
 		E7E7F1022826C5AD006E2C3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F1012826C5AD006E2C3C /* ViewController.swift */; };
-		E7E7F1052826C5AD006E2C3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E7F1032826C5AD006E2C3C /* Main.storyboard */; };
 		E7E7F1072826C5AF006E2C3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E7F1062826C5AF006E2C3C /* Assets.xcassets */; };
 		E7E7F10A2826C5AF006E2C3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E7F1082826C5AF006E2C3C /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,9 +16,7 @@
 /* Begin PBXFileReference section */
 		E7E7F0FA2826C5AD006E2C3C /* FaceBookPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceBookPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E7F0FD2826C5AD006E2C3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7E7F0FF2826C5AD006E2C3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E7E7F1012826C5AD006E2C3C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E7E7F1042826C5AD006E2C3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7E7F1062826C5AF006E2C3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7E7F1092826C5AF006E2C3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7E7F10B2826C5AF006E2C3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,9 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				E7E7F0FD2826C5AD006E2C3C /* AppDelegate.swift */,
-				E7E7F0FF2826C5AD006E2C3C /* SceneDelegate.swift */,
 				E7E7F1012826C5AD006E2C3C /* ViewController.swift */,
-				E7E7F1032826C5AD006E2C3C /* Main.storyboard */,
 				E7E7F1062826C5AF006E2C3C /* Assets.xcassets */,
 				E7E7F1082826C5AF006E2C3C /* LaunchScreen.storyboard */,
 				E7E7F10B2826C5AF006E2C3C /* Info.plist */,
@@ -127,7 +121,6 @@
 			files = (
 				E7E7F10A2826C5AF006E2C3C /* LaunchScreen.storyboard in Resources */,
 				E7E7F1072826C5AF006E2C3C /* Assets.xcassets in Resources */,
-				E7E7F1052826C5AD006E2C3C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,21 +133,12 @@
 			files = (
 				E7E7F1022826C5AD006E2C3C /* ViewController.swift in Sources */,
 				E7E7F0FE2826C5AD006E2C3C /* AppDelegate.swift in Sources */,
-				E7E7F1002826C5AD006E2C3C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E7E7F1032826C5AD006E2C3C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E7E7F1042826C5AD006E2C3C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E7E7F1082826C5AF006E2C3C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,7 +278,6 @@
 				INFOPLIST_FILE = FaceBookPage/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,7 +305,6 @@
 				INFOPLIST_FILE = FaceBookPage/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
