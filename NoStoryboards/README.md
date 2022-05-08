@@ -2,7 +2,7 @@
 1. Удаляем SceneDelegate
 2. Удаляем Main.storyboard
 3. Удаляем данные из info.plist, находим строчку**Application Scene Manifest** и удаляем ее
-4. В настройках проекта в разделе TASRGETS переходим на вкладку General и в поиске пишем main, в появившемся списке удаляем **UIKit Main Storyboard File Base Name**
+4. В настройках проекта в разделе TASRGETS переходим на вкладку "Build Settings" и в поиске пишем main, в появившемся списке удаляем **UIKit Main Storyboard File Base Name**
 5. Редактируем файл **AppDelegate**, удаляем все содержимое и вставляем следующий код:
 ```swift
 import UIKit
