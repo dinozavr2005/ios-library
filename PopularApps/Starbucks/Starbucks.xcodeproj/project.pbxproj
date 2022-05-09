@@ -12,6 +12,7 @@
 		E7E7F12728280B97006E2C3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E7F12628280B97006E2C3C /* Assets.xcassets */; };
 		E7E7F12A28280B97006E2C3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E7F12828280B97006E2C3C /* LaunchScreen.storyboard */; };
 		E7E7F13328281937006E2C3C /* Factories.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F13228281937006E2C3C /* Factories.swift */; };
+		E7E7F13628290CE1006E2C3C /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F13528290CE1006E2C3C /* HomeHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		E7E7F12928280B97006E2C3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7E7F12B28280B97006E2C3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7E7F13228281937006E2C3C /* Factories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factories.swift; sourceTree = "<group>"; };
+		E7E7F13528290CE1006E2C3C /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +58,8 @@
 			children = (
 				E7E7F13128280DF2006E2C3C /* Files */,
 				E7E7F11D28280B94006E2C3C /* AppDelegate.swift */,
-				E7E7F12128280B94006E2C3C /* HomeViewController.swift */,
 				E7E7F13228281937006E2C3C /* Factories.swift */,
+				E7E7F13428290C1C006E2C3C /* Home */,
 			);
 			path = Starbucks;
 			sourceTree = "<group>";
@@ -70,6 +72,15 @@
 				E7E7F12B28280B97006E2C3C /* Info.plist */,
 			);
 			name = Files;
+			sourceTree = "<group>";
+		};
+		E7E7F13428290C1C006E2C3C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E7E7F12128280B94006E2C3C /* HomeViewController.swift */,
+				E7E7F13528290CE1006E2C3C /* HomeHeaderView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7E7F13628290CE1006E2C3C /* HomeHeaderView.swift in Sources */,
 				E7E7F13328281937006E2C3C /* Factories.swift in Sources */,
 				E7E7F12228280B94006E2C3C /* HomeViewController.swift in Sources */,
 				E7E7F11E28280B94006E2C3C /* AppDelegate.swift in Sources */,
