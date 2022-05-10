@@ -134,3 +134,6 @@ let firstNegative = numbers.first(where: { $0 < 0 }) // Optional(-2)
 let numbers = []
 numbers.isEmpty // true
 ```
+
+## Полезные сслыки
+- [Немного практики функционального программирования в Swift для начинающих](https://habr.com/ru/post/440722/)
