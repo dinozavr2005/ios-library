@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E7DCEA38282C29E30028D9F7 /* TileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEA37282C29E30028D9F7 /* TileViewController.swift */; };
+		E7DCEA3A282C2A6C0028D9F7 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEA39282C2A6C0028D9F7 /* TileView.swift */; };
 		E7E7F11E28280B94006E2C3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F11D28280B94006E2C3C /* AppDelegate.swift */; };
 		E7E7F12228280B94006E2C3C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F12128280B94006E2C3C /* HomeViewController.swift */; };
 		E7E7F12728280B97006E2C3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E7F12628280B97006E2C3C /* Assets.xcassets */; };
 		E7E7F12A28280B97006E2C3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E7F12828280B97006E2C3C /* LaunchScreen.storyboard */; };
 		E7E7F13328281937006E2C3C /* Factories.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F13228281937006E2C3C /* Factories.swift */; };
 		E7E7F13628290CE1006E2C3C /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F13528290CE1006E2C3C /* HomeHeaderView.swift */; };
-		E7E7F138282BAE76006E2C3C /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F137282BAE76006E2C3C /* TileView.swift */; };
+		E7E7F138282BAE76006E2C3C /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7F137282BAE76006E2C3C /* PlaceholderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E7DCEA37282C29E30028D9F7 /* TileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileViewController.swift; sourceTree = "<group>"; };
+		E7DCEA39282C2A6C0028D9F7 /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		E7E7F11A28280B94006E2C3C /* Starbucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Starbucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E7F11D28280B94006E2C3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7E7F12128280B94006E2C3C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -25,7 +29,7 @@
 		E7E7F12B28280B97006E2C3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7E7F13228281937006E2C3C /* Factories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factories.swift; sourceTree = "<group>"; };
 		E7E7F13528290CE1006E2C3C /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
-		E7E7F137282BAE76006E2C3C /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		E7E7F137282BAE76006E2C3C /* PlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +85,9 @@
 			children = (
 				E7E7F12128280B94006E2C3C /* HomeViewController.swift */,
 				E7E7F13528290CE1006E2C3C /* HomeHeaderView.swift */,
-				E7E7F137282BAE76006E2C3C /* TileView.swift */,
+				E7E7F137282BAE76006E2C3C /* PlaceholderViewController.swift */,
+				E7DCEA37282C29E30028D9F7 /* TileViewController.swift */,
+				E7DCEA39282C2A6C0028D9F7 /* TileView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -157,9 +163,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7E7F13628290CE1006E2C3C /* HomeHeaderView.swift in Sources */,
+				E7DCEA3A282C2A6C0028D9F7 /* TileView.swift in Sources */,
 				E7E7F13328281937006E2C3C /* Factories.swift in Sources */,
+				E7DCEA38282C29E30028D9F7 /* TileViewController.swift in Sources */,
 				E7E7F12228280B94006E2C3C /* HomeViewController.swift in Sources */,
-				E7E7F138282BAE76006E2C3C /* TileView.swift in Sources */,
+				E7E7F138282BAE76006E2C3C /* PlaceholderViewController.swift in Sources */,
 				E7E7F11E28280B94006E2C3C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
