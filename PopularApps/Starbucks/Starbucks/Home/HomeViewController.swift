@@ -19,7 +19,7 @@ class HomeViewController: StarBucksViewController {
     
     let cellId = "cellId"
     let tiles = [
-        //RewardsTileViewController(),
+        RewardTileViewController(),
         TileViewController(title: "Breakfast made meatless",
                            subtitle: "Try the Beyond Meat, Cheddar & Egg Breakfast Sandwich. Vegetarian and protein-packed.",
                            imageName: "meatless"),

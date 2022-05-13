@@ -129,15 +129,13 @@ let character1 = Character.warrior(weapon: .sword)
 
 В случае со структурой, вы определяете одни и те же внутренние перечисления, но перечисление верхнего уровня определяется как struct, в которой хранятся перечисления, которые он использует внутри сохраненные свойства(stored properties).
 
-Which one you use is a matter of style and circumstance. If you can get away with purely defining everything in terms of enums, the pure enum method would be an option as this is extemely light weight, and requires little to no overhead.
+Какой из них вы используете, зависит от стиля и обстоятельств. Если вам подойдет простое определение всего с точки зрения перечислений, это отличный выбор, поскольку он очень легкий и практически не требует накладных расходов.
 
-If you think your character needs more data in the form of storied properties, or you want to start adding more functionality and state, the struct would be the way to go. A bit heavier. But still very light. 
-
-At this point I don’t have any strong opinions. Try them both and see what you like.
+Если вы считаете, что вашему Герою нужно больше данных в виде легендарных свойств, или вы хотите начать добавлять больше функций и состояний, структура будет подходящим вариантом. Немного тяжелее. Но все равно очень легкая.
 
 ## Enums as Strings
 
-With Swift, enums don’t have to be just integers. We can also represent enums as Strings.
+В Swift перечисления не обязательно должны быть целыми числами(Int). Мы также можем представлять перечисления как строки(String).
 
 ```swift
 enum SegueIdentifier: String {
@@ -155,7 +153,7 @@ enum EmployeeType: String {
 }
 ```
 
-The beauty of the String, is you no longer need to have hard coded Strings spread throughout your library. You can now capture those as enum types and switch on them very conveniently.
+Прелесть String в том, что вам больше не нужно хардкодить строки, разбросанные по всей вашей библиотеке. Теперь вы можете захватывать их как типы перечислений.
 
 ```swift
 override func prepareForSegue(...) {
