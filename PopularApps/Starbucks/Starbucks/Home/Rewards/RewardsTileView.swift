@@ -7,11 +7,11 @@
 
 import UIKit
 
-class RewardTileView: UIView {
+class RewardsTileView: UIView {
     
     let balanceView = BalanceView()
     var rewardsButton = UIButton()
-    let rewardsGraphView = UIView()
+    let rewardsGraphView = RewardsGraphView()
     let starRewardsView = UIView()
     var detailsButton = UIButton()
     
@@ -30,7 +30,7 @@ class RewardTileView: UIView {
     }
 }
 
-extension RewardTileView {
+extension RewardsTileView {
     func style() {
         balanceView.translatesAutoresizingMaskIntoConstraints = false
         rewardsGraphView.translatesAutoresizingMaskIntoConstraints = false
@@ -89,5 +89,13 @@ extension RewardTileView {
             detailsButton.leadingAnchor.constraint(equalTo: balanceView.leadingAnchor),
             bottomAnchor.constraint(equalToSystemSpacingBelow: detailsButton.bottomAnchor, multiplier: 2),
         ])
+    }
+    
+    // Redraw our graph once we know our actual device width & height
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        rewardsGraphView.actualFrameWidth = frame.width
+        rewardsGraphView.drawRewardsGraph()
     }
 }

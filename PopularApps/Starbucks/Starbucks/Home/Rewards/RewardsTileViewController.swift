@@ -1,5 +1,5 @@
 //
-//  RewardTileViewController.swift
+//  RewardsTileViewController.swift
 //  Starbucks
 //
 //  Created by Владимир on 13.05.2022.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class RewardTileViewController: UIViewController {
+class RewardsTileViewController: UIViewController {
     
-    let rewardTileView = RewardTileView()
+    let rewardTileView = RewardsTileView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
