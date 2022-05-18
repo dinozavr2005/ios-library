@@ -174,7 +174,7 @@ override func prepareForSegue(...) {
 
 ## Enums and associated values
 
-Enums are so much more in Swift, because just when you thought they couldn’t get any better, you learn you can also associated values or parameters with enums too.
+Перечисления — это гораздо больше в Swift, потому что, когда вы думали, что они не могут быть лучше, вы узнаете, что также можете связывать значения или параметры с перечислениями.
 
 ```swift
 enum Barcode {
@@ -183,7 +183,7 @@ enum Barcode {
 }
 ```
 
-This enum above can take a tuple of values, or associated types with it. I actually don’t like this form of enum, because it doesn’t tell me what the associated values are. I think something like this is much better.
+Это перечисление выше может принимать кортеж значений или связанных с ним типов. На самом деле мне не нравится эта форма перечисления, потому что она не говорит мне, что представляют собой связанные значения. Я думаю, что что-то вроде этого намного лучше.
 
 ```swift
 public class StandardEntryView: UIView {
@@ -202,9 +202,10 @@ public class StandardEntryView: UIView {
     }
 ```
 
-Here we have a UIView that can be in one of two states: email, and listSelection. But along with each of these states, we can pass additional information or associated values.
 
-This means our enums can not have state! This definitely blurs the lines between traditional enums as mere types representing intergers, and this new enum in Swift. Because now in Swift, we can construct these enums, associate with this additional types of objects, and then use that information when we switch on them later. Like this.
+Здесь у нас есть UIView, который может находиться в одном из двух состояний: email и listSelection. Но вместе с каждым из этих состояний мы можем передавать дополнительную информацию или связанные значения.
+
+Это означает, что наши перечисления не могут иметь состояния! Это определенно стирает границы между традиционными перечислениями как простыми типами, представляющими целые числа, и этим новым перечислением в Swift. Потому что теперь в Swift мы можем создавать эти перечисления, ассоциировать с этими дополнительными типами объектов, а затем использовать эту информацию, когда мы включим их позже.
 
 ```swift
 func commonInit() {
@@ -221,7 +222,7 @@ func commonInit() {
     }
 ```
 
-This ability to pass information with the enum is really cool, and something Swift supports. And if you don’t care about the associated values passed, you can ignore them entirely.
+Эта возможность передавать информацию с помощью перечисления действительно крута, и Swift поддерживает это. И если вас не волнуют переданные связанные значения, вы можете полностью их игнорировать.
 
 ```swift
 switch kind {
@@ -232,7 +233,7 @@ switch kind {
         }
 ```
 
-Or selectively
+Или выборочно
 
 ```swift
 switch kind {
@@ -243,7 +244,7 @@ switch kind {
         }
 ```
 
-Enums with methods
+Перечисления с методами
 
 ```swift
 enum WeekDay :String {
@@ -254,7 +255,7 @@ enum WeekDay :String {
 print(WeekDay.Monday.day()) // prints Monday
 ```
 
-Now this is really taking enums to a whole new level. You now have the ability to add methods to enums. These are definitely blurring classes, objects, and structs with enums. But enums are so cheap, they are a nice alternative. Again, for things that naturally represent state.
+Теперь это действительно выводит перечисления на совершенно новый уровень. Теперь у вас есть возможность добавлять методы к перечислениям. Это определенно размытие классов, объектов и структур перечислениями. Но перечисления настолько дешевы, что являются хорошей альтернативой. Опять же, для вещей, которые естественным образом представляют состояние.
 
 
 ## Enums with Computed Properties
@@ -278,7 +279,7 @@ let device = Device.iPhone
 print(device.year)
 ```
 
-Note enums can’t have stored properties. In other ways you can’t do this.
+Обратите внимание, что перечисления не могут иметь сохраненных свойств. Другими способами вы не можете этого сделать.
 
 ```swift
 enum Device {
@@ -291,7 +292,7 @@ enum Device {
 
 ## Enums with mutating methods
 
-Enums by themselves have no state. But you can simulate, or toggle an enums state by having it mutate itself. By creating a mutating function that can set the implicit self parameter, use can change the state of the referenced enum itself.
+Перечисления сами по себе не имеют состояния. Но вы можете моделировать или переключать состояние enums, заставляя его мутировать. Создавая изменяющую функцию, которая может устанавливать неявный параметр self, использование может изменить состояние самого перечисления, на которое ссылаются.
 
 ```swift
 enum TriStateSwitch {
@@ -316,7 +317,7 @@ ovenLight.next() // ovenLight is now equal to .high
 ovenLight.next() // ovenLight is now equal to .off again
 ```
 
-This is really cool because it’s like a state machine within itself.
+Это действительно круто, потому что это как конечный автомат внутри себя.
 
 ## Enums with static methods
 
@@ -372,7 +373,7 @@ print(intCategory)
 
 ## Enums and Protocols
 
-Again, blurring the line between enum and struct, but if you want an enum to confirm to a protocol, you can do it like this.
+Опять же, стирая грань между перечислением и структурой, но если вы хотите, чтобы перечисление подтверждало протокол, вы можете сделать это так.
 
 ```swift
 protocol LifeSpan {
@@ -432,9 +433,9 @@ print(player.numberOfHearts) // prints 0
 
 ## Enums and Extensions
 
-Enums can have extensions, and this is handy for when you want to separate your data structs from your methods.
+Перечисления могут иметь расширения, и это удобно, когда вы хотите отделить свои структуры данных от своих методов.
 
-Note the mutating keyword. Any time you want to modify the state of an enum, a mutating method definition is needed.
+Обратите внимание на ключевое слово mutating. Каждый раз, когда вы хотите изменить состояние перечисления, необходимо определение изменяющего метода.
 
 ```swift
 enum Entities {
@@ -461,7 +462,7 @@ extension Entities: CustomStringConvertible {
 
 ## Enums as generics
 
-Yes, you can even generize enums.
+Да, вы даже можете генерировать перечисления.
 
 ```swift
 enum Information<T1, T2> {
@@ -471,7 +472,7 @@ enum Information<T1, T2> {
 }
 ```
 
-Here the compiler is able to recognize T1 as ‘Bob’, but T2 is not defined yet. Therefore, we must define both T1 and T2 explicitly as shown below.
+Здесь компилятор может распознать T1 как «Bob», но T2 еще не определен. Следовательно, мы должны явно определить и T1, и T2, как показано ниже.
 
 ```swift
 let info = Information.name("Bob") // Error
@@ -484,7 +485,7 @@ print(info) //prints age(20)
 
 ### Enums as guards
 
-Another example of how enums can be used in with guard statements.
+Еще один пример того, как перечисления можно использовать с операторами защиты.
 
 ```swift
 enum ChatType {
@@ -559,7 +560,7 @@ extension AFError {
 
 ## Enums and versions
 
-Say you have a backend service where the type is represented as an enum, and you want to future proof it for when new types come later. Create an `Unknown` versions and set that as the enum type if you can't decode it from the JSON.
+Скажем, у вас есть серверная служба, в которой тип представлен как перечисление, и вы хотите проверить его в будущем, когда появятся новые типы. Создайте `Unknown` версии и установите их как тип перечисления, если вы не можете декодировать их из JSON.
 
 ```swift
 enum AccountSubType: String, Codable {
@@ -575,11 +576,11 @@ extension AccountSubType {
 }
 ```
 
-## Is there anything enums can’t do?
+## Есть ли что-то, что перечисления не могут сделать?
 
-Yes. Enums don’t support stored properties.
+Да. Перечисления не поддерживают хранимые свойства.
 
-In other words you can’t do this
+Другими словами, вы не можете этого сделать
 
 ```swift
 enum Device {
@@ -589,9 +590,9 @@ enum Device {
   var year: Int
 }
 ```
-### How to add an enum to an existing struct
+### Как добавить перечисление в существующий Struct
 
-Say you want to have a struct return an enum based on an internal type.
+Допустим, вы хотите, чтобы структура возвращала перечисление на основе внутреннего типа.
 
 ```swift
 enum ActivationModemType: String {
@@ -614,11 +615,11 @@ extension OrderItem {
     }
 ```
 
-You use the internal variable (`modemType`) to dynamically figure out the enum in the computed getter, and then return that enum value.
+Вы используете внутреннюю переменную (`modemType`) для динамического определения перечисления в вычисляемом геттере, а затем возвращаете это значение перечисления.
 
 ### Enums can be used as types
 
-Enums don't just have to be used for switch statements. They, along with their associated values, can be more more akin to objects and structures themselves. For example here is an example of how a struct where one of it's types is an Enum.
+Перечисления нужно использовать не только для операторов switch. Они вместе со связанными с ними значениями могут быть более похожими на сами объекты и структуры. Например, вот пример того, как структура, где один из ее типов является Enum.
 
 ```swift
 
@@ -647,7 +648,7 @@ extension ActivationResourcePackage {
 }
 ```
 
-What you are signalling here is I want you to create an object for me, based on this enum and all it's associated data. It's a compact way of sending a lot of state and type information, conveniently in one package.
+Здесь вы сигнализируете, что я хочу, чтобы вы создали для меня объект на основе этого перечисления и всех связанных с ним данных. Это компактный способ отправки большого количества информации о состоянии и типе в одном пакете.
 
 ```swift
 private func createPackage(for orderItem: OrderItem) -> ActivationResourcePackage {
@@ -664,9 +665,9 @@ private func createPackage(for orderItem: OrderItem) -> ActivationResourcePackag
 }
 ```
 
-Here we are creating a type safe package representing our configuration, based on an enum type.
+Здесь мы создаем типобезопасный пакет, представляющий нашу конфигурацию на основе типа enum.
 
-### How to convert a string into an enum
+### Как преобразовать строку в перечисление
 
 ```swift
 enum ActivationModemType: String {
@@ -677,7 +678,7 @@ enum ActivationModemType: String {
 let modem = ActivationModemType(rawValue: "usRobotics")
 ```
 
-## Links that help
+## Полезные ссылки
 
 - [Apple Swift Docs](https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html)
 - [More Enum Examples](https://developerinsider.co/advanced-enum-enumerations-by-example-swift-programming-language/)
