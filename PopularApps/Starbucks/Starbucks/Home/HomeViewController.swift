@@ -12,8 +12,7 @@ class HomeViewController: StarBucksViewController {
     let headerView = HomeHeaderView()
     let scrollView = UIScrollView()
     let stackView = UIStackView()
-    
-    
+
     var headerViewTopConstriant: NSLayoutConstraint?
     
     

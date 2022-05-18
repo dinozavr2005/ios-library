@@ -45,6 +45,7 @@ func makeSymbolImageView(systemName: String, scale: UIImage.SymbolScale = .large
     return UIImageView(image: image)
 }
 
+
 func makeClearButton(withText text: String) -> UIButton {
     let button = UIButton()
     button.translatesAutoresizingMaskIntoConstraints = false
