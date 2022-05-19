@@ -9,12 +9,18 @@ import UIKit
 
 class HomeViewController: StarBucksViewController {
     
+    let topSpacerView = UIView()
     let headerView = HomeHeaderView()
     let scrollView = UIScrollView()
     let stackView = UIStackView()
+    let scanButton = UIButton()
 
     var headerViewTopConstriant: NSLayoutConstraint?
     
+    struct ScanButtonSpacing {
+        static let height: CGFloat = 60
+        static let width: CGFloat = 170
+    }
     
     let cellId = "cellId"
     let tiles = [
@@ -49,6 +55,10 @@ class HomeViewController: StarBucksViewController {
 
 extension HomeViewController {
     func style() {
+        view.backgroundColor = .backgroundWhite
+        topSpacerView.backgroundColor = .white
+        
+        topSpacerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.translatesAutoresizingMaskIntoConstraints = false
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -56,11 +66,22 @@ extension HomeViewController {
         
         stackView.axis = .vertical
         stackView.spacing = 8
+        
+        scanButton.translatesAutoresizingMaskIntoConstraints = false
+        scanButton.setTitle("Scan in store", for: .normal)
+        scanButton.titleLabel?.minimumScaleFactor = 0.5
+        scanButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
+        scanButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        scanButton.backgroundColor = .lightGreen
+        scanButton.setTitleColor(.white, for: .normal)
+        scanButton.layer.cornerRadius = ScanButtonSpacing.height/2
     }
     
     func layout() {
+        view.addSubview(topSpacerView)
         view.addSubview(headerView)
         view.addSubview(scrollView)
+        view.addSubview(scanButton)
         
         scrollView.addSubview(stackView)
         
@@ -73,6 +94,11 @@ extension HomeViewController {
         headerViewTopConstriant = headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         
         NSLayoutConstraint.activate([
+            topSpacerView.topAnchor.constraint(equalTo: view.topAnchor),
+            topSpacerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            topSpacerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            topSpacerView.heightAnchor.constraint(equalToConstant: 100),
+            
             // put constraint in variable
 //            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             headerViewTopConstriant!,
@@ -90,6 +116,11 @@ extension HomeViewController {
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            scanButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            scanButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            scanButton.widthAnchor.constraint(equalToConstant: ScanButtonSpacing.width),
+            scanButton.heightAnchor.constraint(equalToConstant: ScanButtonSpacing.height),
         ])
     }
 }
