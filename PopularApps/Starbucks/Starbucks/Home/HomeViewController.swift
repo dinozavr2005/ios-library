@@ -8,46 +8,47 @@
 import UIKit
 
 class HomeViewController: StarBucksViewController {
-    
+
     let topSpacerView = UIView()
     let headerView = HomeHeaderView()
     let scrollView = UIScrollView()
     let stackView = UIStackView()
     let scanButton = UIButton()
-
-    var headerViewTopConstriant: NSLayoutConstraint?
+    
+    var headerViewTopConstraint: NSLayoutConstraint?
     
     struct ScanButtonSpacing {
         static let height: CGFloat = 60
         static let width: CGFloat = 170
     }
-    
-    let cellId = "cellId"
+
     let tiles = [
-        RewardsTileViewController(),
-        TileViewController(title: "Breakfast made meatless",
-                           subtitle: "Try the Beyond Meat, Cheddar & Egg Breakfast Sandwich. Vegetarian and protein-packed.",
-                           imageName: "meatless"),
-        TileViewController(title: "Uplifting our communities",
-                           subtitle: "Thanks to our partners' nominations, The Starbucks Foundation is donating $145K to more than 50 local charities.",
-                           imageName: "communities"),
-        TileViewController(title: "Spend at least $15 for 50 Bonus Stars",
-                           subtitle: "Collect 50 Bonus Stars when you spend at least $15 pre-tax.",
-                           imageName: "bonus"),
+                RewardsTileViewController(),
+                TileViewController(title: "Breakfast made meatless",
+                                   subtitle: "Try the Beyond Meat, Cheddar & Egg Breakfast Sandwich. Vegetarian and protein-packed.",
+                                   imageName: "meatless"),
+                TileViewController(title: "Uplifting our communities",
+                                   subtitle: "Thanks to our partners' nominations, The Starbucks Foundation is donating $145K to more than 50 local charities.",
+                                   imageName: "communities"),
+                TileViewController(title: "Spend at least $15 for 50 Bonus Stars",
+                                   subtitle: "Collect 50 Bonus Stars when you spend at least $15 pre-tax.",
+                                   imageName: "bonus"),
     ]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
         setupScrollView()
         setTabBarImage(imageName: "house.fill", title: "Home")
+        
         style()
         layout()
     }
-    
+
     func setupNavBar() {
-        navigationController?.navigationBar.topItem?.title = "Good afternoon, Vladimir ☀️"
+        navigationController?.navigationBar.topItem?.title = "Good afternoon, Jonathan ☀️"
     }
+    
     func setupScrollView() {
         scrollView.delegate = self
     }
@@ -60,7 +61,6 @@ extension HomeViewController {
         
         topSpacerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.translatesAutoresizingMaskIntoConstraints = false
-        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -91,17 +91,15 @@ extension HomeViewController {
             tile.didMove(toParent: self)
         }
         
-        headerViewTopConstriant = headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-        
+        headerViewTopConstraint = headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+
         NSLayoutConstraint.activate([
             topSpacerView.topAnchor.constraint(equalTo: view.topAnchor),
             topSpacerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topSpacerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             topSpacerView.heightAnchor.constraint(equalToConstant: 100),
-            
-            // put constraint in variable
-//            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerViewTopConstriant!,
+
+            headerViewTopConstraint!,
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
@@ -125,11 +123,9 @@ extension HomeViewController {
     }
 }
 
-
-// MARK: - Animating scrollView
+// MARK: Animating scrollView
 extension HomeViewController: UIScrollViewDelegate {
     
-    // hide header when scroll down
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = scrollView.contentOffset.y
         
@@ -142,11 +138,9 @@ extension HomeViewController: UIScrollViewDelegate {
         }
         
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: [], animations: {
-            self.headerViewTopConstriant?.constant = shouldSnap ? -labelHeight : 0
+            self.headerViewTopConstraint?.constant = shouldSnap ? -labelHeight : 0
             self.view.layoutIfNeeded()
         })
-
     }
 }
-
 
