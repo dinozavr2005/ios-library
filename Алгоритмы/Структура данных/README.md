@@ -494,3 +494,7 @@ class BST {
 
 
 ```
+### Полезные ссылки
+
+- [Big O нотация в Swift](https://habr.com/ru/post/645723/)
+- [Как работает массив в Swift](https://habr.com/ru/post/665536/)
