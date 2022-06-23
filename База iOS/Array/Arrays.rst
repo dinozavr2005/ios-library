@@ -1,10 +1,6 @@
-:orphan:
-
 The Swift Array Design
 ======================
 
-:Author: Dave Abrahams
-:Date: 2014-04-10
 
 .. raw:: html
 
