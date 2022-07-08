@@ -1,4 +1,5 @@
 # Chain of responsibility
+<img src="https://github.com/dinozavr2005/ios-library/blob/main/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D1%8B%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20Swift/Chain%20of%20responsibility/Chain_of_responsibility_proSwift_ru.gif"/>
 
 Представьте себе очередь людей которые пришли за посылками. Выдающий посылки человек, дает первую посылку первому в очереди человеку, он смотрит на имя-фамилию на корбке, видит что посылка не для него, и передает посылку дальше. Второй человек делает собственно тоже самое, и так пока не найдется получатель.
 
