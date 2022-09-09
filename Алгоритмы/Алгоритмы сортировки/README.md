@@ -36,8 +36,62 @@ class BubbleSort {
 let bubbleSort = BubbleSort()
 bubbleSort.sort([5, 4, 3, 2, 1])
 ```
+
+## Merge Sort
+ Производительность сортировки делением O(n logn)
+
+```swift
+func merge(arr1: [Int], arr2: [Int]) -> [Int] {
+    var arr1Index = 0
+    var arr2Index = 0
+        
+    var sortedSublist = [Int]()
+    
+    while arr1Index < arr1.count && arr2Index < arr2.count {
+        if arr1[arr1Index] < arr2[arr2Index] { 
+            sortedArray.append(arr1[arr1Index])
+            arr1Index += 1
+        } else if arr1[arr1Index] > arr2[arr2Index] {
+            sortedArray.append(arr2[arr2Index])
+            arr2Index += 1
+        } else {
+            sortedArray.append(arr1[arr1Index])
+            arr1Index += 1
+            sortedArray.append(arr2[arr2Index])
+            arr2Index += 1
+            
+        }
+    }
+
+    while arr1Index < arr1.count {
+        sortedArray.append(arr1[arr1Index])
+        arr1Index += 1
+    }
+    while arr2Index < arr2.count {
+        sortedArray.append(arr2[arr2Index])
+        arr2Index += 1
+    }
+    
+    return sortedArray
+}
+
+
+func mergeSort(_ array: [Int]) -> [Int] {
+    guard array.count > 1 else { return array }
+    
+    let cutIndex = array.count / 2
+    
+    let arr1 = mergeSort(Array(array[0..<cutIndex]))
+    let arr2 = mergeSort(Array(array[cutIndex..<array.count]))
+    
+    return merge(arr1: arr1, arr2: arr2)
+}
+```
+
 ## Quick Sorting
- Производительность пузырьковой сортировки O(n logn)
+Самый быстрый из представленных
+
+ Производительность быстрой сортировки O(n logn)
 ```swift
 func quicksort<T: Comparable>(_ a: [T]) -> [T] {
   guard a.count > 1 else { return a }
@@ -52,5 +106,4 @@ func quicksort<T: Comparable>(_ a: [T]) -> [T] {
 
 let list = [ 10, 0, 3, 9, 2, 14, 8, 27, 1, 5, 8, -1, 26 ]
 quicksort(list)
-
 ```
