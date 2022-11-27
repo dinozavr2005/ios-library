@@ -1,19 +1,10 @@
 # Arcade
 https://habr.com/ru/post/701822/
-## first
+## Задачи в файле Arcade.swft
 
-
- Last-in first-out (LIFO)
- Push and pop are O(1) operations.
-
+примеры задач:
 ```swift
 func findMergeInsight(headA: Node?, headB: Node?) -> Int? { // O(n)
-   // Figure out which is longer
-   // Swap if necessary
-
-    // Calculate d
-   // Walk d for longer
-   // Walk remainder for both
    let m = length(headA) // O(n)
    let n = length(headB) // O(n)
 
