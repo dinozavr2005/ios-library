@@ -31,6 +31,19 @@ print(words) // [["it\'s", "Sunny", "in"], [], ["California"]]
 let flatWords = arr1.flatMap{ ($0.split(separator: " ")) }
 print(flatWords)// ["it's","Sunny","in", "", "California"]
 ```
+пример собственной реализации `flatMap`
+```swift
+extension Array {
+    func flatMap<T>(_ transform: (Element) -> [T]) -> [T] {
+        var result = [T]()
+        for element in self {
+            result.append(contentsOf: transform(element))
+        }
+        return result
+    }
+}
+```
+ Функция принимает один аргумент — замыкание преобразования, которое преобразует каждый элемент массива в новый массив другого типа. Функция перебирает массив, применяет преобразование к каждому элементу и добавляет содержимое результирующего массива в новый возвращаемый массив.
 ## compactMap
 делает тоже что и `map()`, но дополнительно «разворачивает» полученные на выходе Optional значения и  удаляет из коллекции значения равные `nil`. 
 ```swift
@@ -38,6 +51,23 @@ let possibleNumbers = ["1", "2", "three", "///4///", "5"]
 let compactMapped = possibleNumbers.compactMap(Int.init)
 print (compactMapped) // [1, 2, 5]
 ```
+пример собственной реализации `compactMap`
+```swift
+extension Array {
+    func compactMap<T>(_ transform: (Element) -> T?) -> [T] {
+        var result = [T]()
+        for element in self {
+            if let transformed = transform(element) {
+                result.append(transformed)
+            }
+        }
+        return result
+    }
+}
+```
+
+Функция принимает один аргумент — замыкание преобразования, которое отображает каждый элемент массива в опциональное значение другого типа. Затем функция выполняет итерацию по массиву, применяет преобразование к каждому элементу, и если результат преобразования не равен nil-у, он добавляется к новому возвращаемому массиву.
+
 ## sort
 сортирует данные в массиве
 ```swift
