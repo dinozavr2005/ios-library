@@ -36,28 +36,6 @@ func search(_ nums: [Int], _ target: Int) -> Int {
 - Если nums[mid] > target, пусть right = mid - 1 и повторите шаг 2.
 3) Завершаем цикл, не найдя цель, возвращаем -1.
 
-
-## Плохая версия
-```swift
-func firstBadVersion(_ n: Int) -> Int {
-        var left = 1
-        var right = n
-        var mid = 0
-        while left + 1 < right {
-            mid = left + (right - mid) / 2
-            if isBadVersion(mid) {
-                right = mid
-            } else {
-                left = mid + 1
-            }
-        }
-        if isBadVersion(left) {
-            return left
-        }
-        return right
-    }
-```
-
 ## Вставка на позицию
 ```swift
 func searchInsert(_ nums: [Int], _ target: Int) -> Int {
@@ -85,50 +63,77 @@ func searchInsert(_ nums: [Int], _ target: Int) -> Int {
 
 Если целевое значение больше среднего элемента, продолжайте поиск справа.
 
-## Сложить два числа в массиве
-```swift
- func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-    var dict = [Int: Int]()
-    for index in 0..<nums.count {
-        if let found = dict[target - nums[index]] {
-            return [found, index]
-        } else {
-            dict[nums[index]] = index
-        }
-    }
-    return []
-    }
-```
-
-## () {} [] true/false
-```swift
- func isValid(_ s: String) -> Bool {
-        var arr = [Character]()
-        for c in s{
-            switch c{
-                case ")":
-                    if arr.isEmpty{ return false }
-                    if arr.removeLast() != "(" { return false }
-                    break
-                case "}":
-                    if arr.isEmpty{ return false }
-                    if arr.removeLast() != "{" { return false }
-                    break
-                case "]":
-                    if arr.isEmpty{ return false }
-                    if arr.removeLast() != "[" { return false }
-                    break
-                default:
-                    arr.append(c)
-            }
-        }
-        return arr.isEmpty
-    }   
-```
 ## Возведение массива в квадрат
 ```swift
      func sortedSquares(_ A: [Int]) -> [Int] {
         return A.map{ $0 * $0 }.sorted()
+    }
+```
+
+## Двигаем нули
+```swift
+    func moveZeroes(_ nums: inout [Int]) {
+        var writeIdx = 0
+        // Move non-zero items
+        for num in nums where num != 0 {
+            nums[writeIdx] = num
+            writeIdx += 1
+        }
+        
+        // Fill the remaining with zero
+        for i in writeIdx..<nums.count {
+            nums[i] = 0
+        }
+    }
+```
+
+## Длина строки без повторов букв
+```swift
+func lengthOfLongestSubstring(_ s: String) -> Int {
+        
+        if s.count == 0{
+            return 0
+        }else if s.count == 1{
+          return 1
+        }
+        
+        var maxLength = 0
+        var temp = [Character]()
+        let charArray = Array(s)
+        temp.append(charArray[0])
+        
+        for i in 1...charArray.count-1{
+            
+            if let index = temp.firstIndex(of: charArray[i]){
+                temp.removeFirst(index+1)
+            }
+            temp.append(charArray[i])
+            maxLength = max(maxLength, temp.count)
+            
+        }
+        return maxLength
+    }
+```
+
+
+## Плохая версия
+```swift
+func firstBadVersion(_ n: Int) -> Int {
+        var left = 1
+        var right = n
+        var mid = 0
+        while left + 1 < right {
+            mid = left + (right - mid) / 2
+            if isBadVersion(mid) {
+                right = mid
+            } else {
+                left = mid + 1
+            }
+        }
+        if isBadVersion(left) {
+            return left
+        }
+        return right
     }
 ```
 
@@ -176,41 +181,20 @@ func reverseList(_ head: ListNode?) -> ListNode? {
     return previous
 }
 ```
-## Уникальные повторония цифр в массиве
-```swift
-    func uniqueOccurrences(_ arr: [Int]) -> Bool {
-        var numDict: [Int: Int] = [:]
-        for num in arr {
-            if let val = numDict[num] {
-                numDict[num] = val + 1
-            } else {
-                numDict[num] = 1
-            }
-        }
-        
-        let values = Array(numDict.values)
-        return values.count == Set(values).count
-    }
-}
-```
-- Сохраните частоты элементов массива arr в хэш-карте numDict.
-- Итерация по хэш-карте numDict и вставка частот всех уникальных элементов массива arr в хэш-набор Set.
-- Верните true, если размер хэш-набора Set равен размеру хэш-карты numDict, иначе верните false.
 
-## Двигаем нули
+
+## Сложить два числа в массиве
 ```swift
-    func moveZeroes(_ nums: inout [Int]) {
-        var writeIdx = 0
-        // Move non-zero items
-        for num in nums where num != 0 {
-            nums[writeIdx] = num
-            writeIdx += 1
+ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+    var dict = [Int: Int]()
+    for index in 0..<nums.count {
+        if let found = dict[target - nums[index]] {
+            return [found, index]
+        } else {
+            dict[nums[index]] = index
         }
-        
-        // Fill the remaining with zero
-        for i in writeIdx..<nums.count {
-            nums[i] = 0
-        }
+    }
+    return []
     }
 ```
 
@@ -236,6 +220,26 @@ func reverseList(_ head: ListNode?) -> ListNode? {
     
     return []
 ```
+## Уникальные повторония цифр в массиве
+```swift
+    func uniqueOccurrences(_ arr: [Int]) -> Bool {
+        var numDict: [Int: Int] = [:]
+        for num in arr {
+            if let val = numDict[num] {
+                numDict[num] = val + 1
+            } else {
+                numDict[num] = 1
+            }
+        }
+        
+        let values = Array(numDict.values)
+        return values.count == Set(values).count
+    }
+}
+```
+- Сохраните частоты элементов массива arr в хэш-карте numDict.
+- Итерация по хэш-карте numDict и вставка частот всех уникальных элементов массива arr в хэш-набор Set.
+- Верните true, если размер хэш-набора Set равен размеру хэш-карты numDict, иначе верните false.
 
 ## Fizz Buzz
 ```swift
@@ -318,33 +322,7 @@ func reverseList(_ head: ListNode?) -> ListNode? {
     }
 ```
 
-## Длина строки без повторов букв
-```swift
-func lengthOfLongestSubstring(_ s: String) -> Int {
-        
-        if s.count == 0{
-            return 0
-        }else if s.count == 1{
-          return 1
-        }
-        
-        var maxLength = 0
-        var temp = [Character]()
-        let charArray = Array(s)
-        temp.append(charArray[0])
-        
-        for i in 1...charArray.count-1{
-            
-            if let index = temp.firstIndex(of: charArray[i]){
-                temp.removeFirst(index+1)
-            }
-            temp.append(charArray[i])
-            maxLength = max(maxLength, temp.count)
-            
-        }
-        return maxLength
-    }
-```
+
 
 ## Поиск анаграмм
 ```swift
@@ -380,3 +358,72 @@ func lengthOfLongestSubstring(_ s: String) -> Int {
 Нам также необходимо знать начальный индекс диапазона, чтобы поместить его в список результатов. Таким образом, мы храним два индекса, представляющие две границы текущего диапазона. Для каждого нового элемента мы проверяем, расширяет ли он текущий диапазон. Если нет, то мы помещаем текущий диапазон в список.
 
 Не забудьте поместить в список последний диапазон. Это можно сделать либо специальным условием в цикле, либо поместить последний диапазон в список после цикла.
+
+## Середина связного списка
+```swift
+    func middleNode(_ head: ListNode?) -> ListNode? {
+      var middle: ListNode? = head
+        var end: ListNode? = head
+        
+        while end?.next != nil {
+            middle = middle?.next
+            end = end?.next?.next
+        }
+        return middle
+    }
+```
+
+
+
+## Простое сравнение двух строк
+```swift
+    func arrayStringsAreEqual(_ word1: [String], _ word2: [String]) -> Bool {
+        return word1.joined() == word2.joined()
+    }
+```
+
+## Удаление n-ой ноды с конца
+```swift
+func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
+      var slow = head, fast = head
+        for _ in 0..<n {
+            fast = fast?.next
+        }
+        if fast == nil {
+            return head?.next
+        }
+        while fast?.next != nil {
+            slow = slow?.next
+            fast = fast?.next
+        }
+        slow?.next = slow?.next?.next
+        return head  
+    }
+```
+Приведенный выше алгоритм может быть оптимизирован до одного прохода. Вместо одного указателя можно использовать два указателя. Первый указатель продвигает список на n+1n+1n+1 шагов от начала, а второй указатель начинает с начала списка. Теперь оба указателя находятся точно на расстоянии nnn узлов друг от друга. Мы поддерживаем это постоянное расстояние, продвигая оба указателя вместе до тех пор, пока первый указатель не окажется за последним узлом. Второй указатель будет указывать на nnn-ый узел, считая от последнего. Мы связываем следующий указатель узла, на который ссылается второй указатель, чтобы он указывал на следующий за ним узел.
+
+## () {} [] true/false
+```swift
+ func isValid(_ s: String) -> Bool {
+        var arr = [Character]()
+        for c in s{
+            switch c{
+                case ")":
+                    if arr.isEmpty{ return false }
+                    if arr.removeLast() != "(" { return false }
+                    break
+                case "}":
+                    if arr.isEmpty{ return false }
+                    if arr.removeLast() != "{" { return false }
+                    break
+                case "]":
+                    if arr.isEmpty{ return false }
+                    if arr.removeLast() != "[" { return false }
+                    break
+                default:
+                    arr.append(c)
+            }
+        }
+        return arr.isEmpty
+    }   
+```
