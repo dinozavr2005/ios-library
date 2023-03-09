@@ -115,6 +115,50 @@ func lengthOfLongestSubstring(_ s: String) -> Int {
     }
 ```
 
+## Обобщение диапазонов
+```swift
+    func groupAnagrams(_ strs: [String]) -> [[String]] {
+        if strs.isEmpty { return [] }
+        
+        var map = [String: [String]]()
+        for str in strs {
+            let sortedStr = String(str.sorted())
+            map[sortedStr, default: []] += [str]
+        }
+                
+        return Array(map.values)
+    }
+```
+Чтобы суммировать диапазоны, нам нужно знать, как их разделить. Массив отсортирован и не имеет дубликатов. В таком массиве два соседних элемента имеют разность либо 1, либо больше 1. Если разность равна 1, их следует поместить в один диапазон, в противном случае - разделить диапазоны.
+
+Нам также необходимо знать начальный индекс диапазона, чтобы поместить его в список результатов. Таким образом, мы храним два индекса, представляющие две границы текущего диапазона. Для каждого нового элемента мы проверяем, расширяет ли он текущий диапазон. Если нет, то мы помещаем текущий диапазон в список.
+
+Не забудьте поместить в список последний диапазон. Это можно сделать либо специальным условием в цикле, либо поместить последний диапазон в список после цикла.
+
+## Пермутация
+```swift
+     func checkInclusion(_ s1: String, _ s2: String) -> Bool {
+            guard s2.count >= s1.count else { return false }
+    let chars = Array(s2)
+    let countsOfS1 = Array(s1).reduce(into: [:]) { $0[$1, default: 0] += 1 }
+    
+    var charCountsInSlidingRange = [Character: Int]()
+    for i in 0 ..< s2.count {
+        
+        let indexToRemove = i - s1.count
+        if indexToRemove >= 0 {
+            let count = charCountsInSlidingRange[chars[indexToRemove]]!
+            charCountsInSlidingRange[chars[indexToRemove]] = count > 1 ? count - 1 : nil
+        }
+        
+        charCountsInSlidingRange[chars[i], default: 0] += 1
+        if countsOfS1 == charCountsInSlidingRange {
+            return true
+        }
+    }
+    return false
+    } 
+```
 
 ## Плохая версия
 ```swift
@@ -339,25 +383,15 @@ func reverseList(_ head: ListNode?) -> ListNode? {
     }
 ```
 
-## Обобщение диапазонов
+
+
+
+## Простое сравнение двух строк
 ```swift
-    func groupAnagrams(_ strs: [String]) -> [[String]] {
-        if strs.isEmpty { return [] }
-        
-        var map = [String: [String]]()
-        for str in strs {
-            let sortedStr = String(str.sorted())
-            map[sortedStr, default: []] += [str]
-        }
-                
-        return Array(map.values)
+    func arrayStringsAreEqual(_ word1: [String], _ word2: [String]) -> Bool {
+        return word1.joined() == word2.joined()
     }
 ```
-Чтобы суммировать диапазоны, нам нужно знать, как их разделить. Массив отсортирован и не имеет дубликатов. В таком массиве два соседних элемента имеют разность либо 1, либо больше 1. Если разность равна 1, их следует поместить в один диапазон, в противном случае - разделить диапазоны.
-
-Нам также необходимо знать начальный индекс диапазона, чтобы поместить его в список результатов. Таким образом, мы храним два индекса, представляющие две границы текущего диапазона. Для каждого нового элемента мы проверяем, расширяет ли он текущий диапазон. Если нет, то мы помещаем текущий диапазон в список.
-
-Не забудьте поместить в список последний диапазон. Это можно сделать либо специальным условием в цикле, либо поместить последний диапазон в список после цикла.
 
 ## Середина связного списка
 ```swift
@@ -370,15 +404,6 @@ func reverseList(_ head: ListNode?) -> ListNode? {
             end = end?.next?.next
         }
         return middle
-    }
-```
-
-
-
-## Простое сравнение двух строк
-```swift
-    func arrayStringsAreEqual(_ word1: [String], _ word2: [String]) -> Bool {
-        return word1.joined() == word2.joined()
     }
 ```
 
@@ -427,3 +452,4 @@ func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
         return arr.isEmpty
     }   
 ```
+
